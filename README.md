@@ -1,5 +1,7 @@
 # Go-GC
 
+Project built with [Gini](gini-webserver.up.railway.app)
+
 An educational garbage collector written in Go.
 
 This project is a **toy implementation** of a garbage collector built to explore how GC algorithms work under the hood (mark-and-sweep, object graphs, roots, etc.).

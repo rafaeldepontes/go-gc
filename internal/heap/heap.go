@@ -7,6 +7,13 @@ type Heap struct {
 	nextID uint64
 }
 
+func NewHeap() *Heap {
+	return &Heap{
+		objs:   make(map[uint64]*object.Object),
+		nextID: 1,
+	}
+}
+
 // I would try to build malloc from C, but the void pointer thing is not
 // my style...
 func (h *Heap) Alloc(refs ...*object.Object) *object.Object {

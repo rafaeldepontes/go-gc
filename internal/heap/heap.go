@@ -19,3 +19,13 @@ func (h *Heap) Alloc(refs ...*object.Object) *object.Object {
 	h.nextID++
 	return obj
 }
+
+func (h *Heap) Sweep() {
+	for id, obj := range h.objs {
+		if !obj.Mark {
+			delete(h.objs, id)
+			continue
+		}
+		obj.Mark = false
+	}
+}

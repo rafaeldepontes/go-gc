@@ -1,6 +1,6 @@
 # Go-GC
 
-Project built with [Gini](gini-webserver.up.railway.app)
+Project built with [Gini](https://gini-webserver.up.railway.app/)
 
 An educational garbage collector written in Go.
 

@@ -33,6 +33,7 @@ func (vm *VM) markAll() {
 }
 
 func (vm *VM) GC() {
+	wg.Add(1)
 	vm.markAll()
 	wg.Wait()
 	vm.Heap.Sweep()

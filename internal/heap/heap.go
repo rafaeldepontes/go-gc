@@ -3,13 +3,13 @@ package heap
 import "github.com/rafaeldepontes/go-gc/internal/object"
 
 type Heap struct {
-	objs   map[uint64]*object.Object
+	Objs   map[uint64]*object.Object
 	nextID uint64
 }
 
 func NewHeap() *Heap {
 	return &Heap{
-		objs:   make(map[uint64]*object.Object),
+		Objs:   make(map[uint64]*object.Object),
 		nextID: 1,
 	}
 }
@@ -22,15 +22,15 @@ func (h *Heap) Alloc(refs ...*object.Object) *object.Object {
 		Refs: refs,
 	}
 
-	h.objs[obj.ID] = obj
+	h.Objs[obj.ID] = obj
 	h.nextID++
 	return obj
 }
 
 func (h *Heap) Sweep() {
-	for id, obj := range h.objs {
+	for id, obj := range h.Objs {
 		if !obj.Mark {
-			delete(h.objs, id)
+			delete(h.Objs, id)
 			continue
 		}
 		obj.Mark = false
